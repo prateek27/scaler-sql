@@ -122,19 +122,30 @@ FROM batches;
 -- Drop : destroy the table (including the structure), No Rollback is possible
 
 
+-- DOUBTS 
+-- ENUM DEMO
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    product_type ENUM('electronic', 'furniture', 'clothing', 'food', 'book')
+);
+
+INSERT INTO products (name, product_type) VALUES
+(1,'Laptop', 'electronic'),
+(2,'Chair', 'furniture'),
+(3,'T-shirt', 'clothing'),
+(4,'Chocolate', 'food'),
+(5,'Novel', 'book');
+
+SELECT * 
+FROM products 
+WHERE product_type = "book";
+
+-- Remove Primary Key using the Alter COmmand 
+ALTER TABLE products DROP PRIMARY KEY;
 
 
-
-
-
-
-
-
-
-
-
-
-
+-- Alter Demo 
 USE scalerDB;
 ALTER TABLE batches RENAME TO scalerBatches;
 ALTER TABLE scalerBatches ADD instructor VARCHAR(200);
