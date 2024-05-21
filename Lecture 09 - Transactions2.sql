@@ -1,0 +1,19 @@
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SHOW variables LIKE "transaction_isolation";
+SET AUTOCOMMIT = 0;
+
+
+SELECT * 
+FROM film 
+WHERE film_id = 5;
+
+
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET AUTOCOMMIT = 0;
+
+SELECT * 
+FROM film 
+WHERE film_id = 6; -- last committed value it will read!
+
+
+
